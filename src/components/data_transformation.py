@@ -33,7 +33,7 @@ class DataTransformation:
             num_pipeline = Pipeline(
                 steps = [
                     ('imputer',SimpleImputer(strategy='most_frequent')),
-                    ('scaler',StandardScaler())
+                    ('scaler',StandardScaler(with_mean = False))
                 ]
             )
 
@@ -41,7 +41,7 @@ class DataTransformation:
 
             preprocessor = ColumnTransformer(
                 [
-                    ('num_piepline',num_pipeline,numerical_features)
+                    ('num_pipeline',num_pipeline,numerical_features)
                 ]
             )
 
